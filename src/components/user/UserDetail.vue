@@ -5,7 +5,7 @@
         <router-link 
         class="btn btn-primary"
         tag="button" 
-        v-bind:to="{ name: 'userEdit', params: { id: $route.params.id } }"
+        v-bind:to="link"
         >Edit User</router-link>
 
         <!-- <router-link 
@@ -15,3 +15,29 @@
         >Edit User</router-link> -->
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            link: { 
+                name: 'userEdit', 
+                params: { 
+                    id: this.$route.params.id 
+                    }, 
+                query: {
+                     locale: 'en', 
+                     q: 100
+                     },
+                     hash: '#data'
+                 }
+        }
+    },
+    beforeRouteEnter (to, from, next) {
+        if (true){
+            next();
+        }
+        next(false);
+    }
+}
+</script>
